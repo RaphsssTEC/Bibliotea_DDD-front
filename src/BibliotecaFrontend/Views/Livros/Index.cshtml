@@ -1,0 +1,66 @@
+@model IReadOnlyList<Livro>
+@{
+    ViewData["Title"] = "Livros";
+}
+
+<section class="hero">
+    <div>
+        <p class="eyebrow">CATÁLOGO</p>
+        <h1>Biblioteca</h1>
+        <p class="subtitle">Gerencie livros consumindo sua API DDD.</p>
+    </div>
+    <a class="button primary" asp-action="Criar">Cadastrar livro</a>
+</section>
+
+@if (!Model.Any())
+{
+    <section class="empty">
+        <h2>Nenhum livro encontrado</h2>
+        <p>Cadastre o primeiro livro ou verifique se a API está em execução.</p>
+        <a class="button primary" asp-action="Criar">Cadastrar livro</a>
+    </section>
+}
+else
+{
+    <section class="stats">
+        <div><strong>@Model.Count</strong><span>livros</span></div>
+        <div><strong>@Model.Count(l => l.Disponivel)</strong><span>disponíveis</span></div>
+        <div><strong>@Model.Count(l => !l.Disponivel)</strong><span>emprestados</span></div>
+    </section>
+
+    <section class="book-grid">
+        @foreach (var livro in Model)
+        {
+            <article class="book-card">
+                <div class="book-top">
+                    <span class="book-id">#@livro.Id</span>
+                    <span class="status @(livro.Disponivel ? "available" : "borrowed")">
+                        @(livro.Disponivel ? "Disponível" : "Emprestado")
+                    </span>
+                </div>
+
+                <h2>@livro.Titulo</h2>
+                <p class="author">@livro.Autor</p>
+
+                <div class="actions">
+                    <a class="button secondary" asp-action="Detalhes" asp-route-id="@livro.Id">Detalhes</a>
+
+                    @if (livro.Disponivel)
+                    {
+                        <form asp-action="Emprestar" asp-route-id="@livro.Id" method="post">
+                            @Html.AntiForgeryToken()
+                            <button class="button primary" type="submit">Emprestar</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="Devolver" asp-route-id="@livro.Id" method="post">
+                            @Html.AntiForgeryToken()
+                            <button class="button primary" type="submit">Devolver</button>
+                        </form>
+                    }
+                </div>
+            </article>
+        }
+    </section>
+}

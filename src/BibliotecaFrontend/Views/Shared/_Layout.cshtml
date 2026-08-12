@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Biblioteca</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+<header class="topbar">
+    <div class="container nav">
+        <a class="brand" asp-controller="Livros" asp-action="Index">Biblioteca</a>
+        <nav>
+            <a asp-controller="Livros" asp-action="Index">Livros</a>
+            <a class="nav-button" asp-controller="Livros" asp-action="Criar">Novo livro</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container page">
+    @if (TempData["Sucesso"] is string sucesso)
+    {
+        <div class="alert success">@sucesso</div>
+    }
+
+    @if (TempData["Erro"] is string erro)
+    {
+        <div class="alert error">@erro</div>
+    }
+
+    @RenderBody()
+</main>
+
+<footer class="container footer">
+    <span>Biblioteca · Frontend ASP.NET Core 8</span>
+</footer>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

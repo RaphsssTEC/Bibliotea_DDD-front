@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tarde.cetafest\\Documents\\GitHub\\Bibliotea_DDD front\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A3B4D1C2-9E51-4A5D-9C5A-1A2B3C4D5E6F}|src\\BibliotecaFrontend\\BibliotecaFrontend.csproj|c:\\users\\tarde.cetafest\\documents\\github\\bibliotea_ddd front\\src\\bibliotecafrontend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A3B4D1C2-9E51-4A5D-9C5A-1A2B3C4D5E6F}|src\\BibliotecaFrontend\\BibliotecaFrontend.csproj|solutionrelative:src\\bibliotecafrontend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\tarde.cetafest\\Documents\\GitHub\\Bibliotea_DDD front\\src\\BibliotecaFrontend\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\BibliotecaFrontend\\appsettings.json",
+              "ToolTip": "C:\\Users\\tarde.cetafest\\Documents\\GitHub\\Bibliotea_DDD front\\src\\BibliotecaFrontend\\appsettings.json",
+              "RelativeToolTip": "src\\BibliotecaFrontend\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-12T19:45:22.489Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+@model Livro
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<section class="form-header">
+    <p class="eyebrow">LIVRO #@Model.Id</p>
+    <h1>@Model.Titulo</h1>
+    <p class="subtitle">@Model.Autor</p>
+</section>
+
+<div class="detail-card">
+    <div class="detail-row">
+        <span>Status</span>
+        <strong class="status @(Model.Disponivel ? "available" : "borrowed")">
+            @(Model.Disponivel ? "Disponível" : "Emprestado")
+        </strong>
+    </div>
+
+    <div class="detail-row">
+        <span>Autor</span>
+        <strong>@Model.Autor</strong>
+    </div>
+
+    <div class="detail-actions">
+        @if (Model.Disponivel)
+        {
+            <form asp-action="Emprestar" asp-route-id="@Model.Id" method="post">
+                @Html.AntiForgeryToken()
+                <button class="button primary" type="submit">Emprestar</button>
+            </form>
+        }
+        else
+        {
+            <form asp-action="Devolver" asp-route-id="@Model.Id" method="post">
+                @Html.AntiForgeryToken()
+                <button class="button primary" type="submit">Devolver</button>
+            </form>
+        }
+
+        <a class="button secondary" asp-action="Index">Voltar</a>
+    </div>
+</div>

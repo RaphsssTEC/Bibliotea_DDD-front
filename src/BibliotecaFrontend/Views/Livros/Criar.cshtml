@@ -1,0 +1,30 @@
+@model CriarLivroRequest
+@{
+    ViewData["Title"] = "Novo livro";
+}
+
+<section class="form-header">
+    <p class="eyebrow">CATÁLOGO</p>
+    <h1>Novo livro</h1>
+    <p class="subtitle">Informe os dados que serão enviados para a API.</p>
+</section>
+
+<div class="form-card">
+    <form asp-action="Criar" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+
+        <label asp-for="Titulo">Título</label>
+        <input asp-for="Titulo" autocomplete="off" placeholder="Ex.: Clean Code" />
+        <span asp-validation-for="Titulo" class="validation"></span>
+
+        <label asp-for="Autor">Autor</label>
+        <input asp-for="Autor" autocomplete="off" placeholder="Ex.: Robert C. Martin" />
+        <span asp-validation-for="Autor" class="validation"></span>
+
+        <div class="form-actions">
+            <a class="button secondary" asp-action="Index">Cancelar</a>
+            <button class="button primary" type="submit">Cadastrar</button>
+        </div>
+    </form>
+</div>
